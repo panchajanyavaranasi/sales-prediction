@@ -12,16 +12,19 @@ import pickle
 # Load Model Artifacts
 # -----------------------------
 # Streamlit Cloud working directory is the repo root
-BASE_DIR = os.path.dirname(__file__)
-MODELS_DIR = os.path.join(BASE_DIR, "models")
+def load_model_from_github(url):
+    response = requests.get(url)
+    return pickle.loads(response.content)
+
+BASE_URL = "https://github.com/panchajanyavaranasi/sales-prediction/tree/main/Sales_prediction/models"
 
 try:
-    model = pickle.load(open(os.path.join(MODELS_DIR, "knn_model.pkl"), "rb"))
-    scaler = pickle.load(open(os.path.join(MODELS_DIR, "scaler.pkl"), "rb"))
-    imputer = pickle.load(open(os.path.join(MODELS_DIR, "imputer.pkl"), "rb"))
-    columns = pickle.load(open(os.path.join(MODELS_DIR, "columns.pkl"), "rb"))
-except FileNotFoundError as e:
-    st.error(f"⚠️ Model file not found: {e}")
+    model = load_model_from_github(BASE_URL + "knn_model.pkl")
+    scaler = load_model_from_github(BASE_URL + "scaler.pkl")
+    imputer = load_model_from_github(BASE_URL + "imputer.pkl")
+    columns = load_model_from_github(BASE_URL + "columns.pkl")
+except Exception as e:
+    st.error(f"⚠️ Failed to load model from GitHub: {e}")
     st.stop()
 
 st.title("📊 Sales Revenue Prediction")
