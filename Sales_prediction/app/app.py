@@ -12,12 +12,16 @@ import pickle
 # Load Model Artifacts
 # -----------------------------
 BASE_DIR = os.path.dirname(__file__)
-MODELS_DIR = os.path.join(BASE_DIR, "../models")
+MODELS_DIR = os.path.join(BASE_DIR, "models")  # inside app/
 
-model = pickle.load(open("models/knn_model.pkl", "rb"))
-scaler = pickle.load(open("models/scaler.pkl", "rb"))
-imputer = pickle.load(open("models/imputer.pkl", "rb"))
-columns = pickle.load(open("models/columns.pkl", "rb"))
+try:
+    model = pickle.load(open(os.path.join(MODELS_DIR, "knn_model.pkl"), "rb"))
+    scaler = pickle.load(open(os.path.join(MODELS_DIR, "scaler.pkl"), "rb"))
+    imputer = pickle.load(open(os.path.join(MODELS_DIR, "imputer.pkl"), "rb"))
+    columns = pickle.load(open(os.path.join(MODELS_DIR, "columns.pkl"), "rb"))
+except FileNotFoundError as e:
+    st.error(f"⚠️ Model file not found: {e}")
+    st.stop()
 
 st.title("📊 Sales Revenue Prediction")
 
