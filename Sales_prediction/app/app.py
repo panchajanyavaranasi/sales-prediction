@@ -11,8 +11,8 @@ import pickle
 # -----------------------------
 # Load Model Artifacts
 # -----------------------------
-BASE_DIR = os.path.dirname(__file__)
-MODELS_DIR = os.path.join(BASE_DIR, "models")  # inside app/
+# Streamlit Cloud working directory is the repo root
+MODELS_DIR = os.path.join(os.getcwd(), "models")
 
 try:
     model = pickle.load(open(os.path.join(MODELS_DIR, "knn_model.pkl"), "rb"))
