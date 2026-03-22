@@ -11,13 +11,13 @@ import pickle
 # -----------------------------
 # Load Model Artifacts
 # -----------------------------
-REPO_ROOT = os.getcwd()
-MODELS_DIR = os.path.join(REPO_ROOT, "models")
+BASE_DIR = os.path.dirname(__file__)
+MODELS_DIR = os.path.join(BASE_DIR, "../models")
 
-model = pickle.load(open(os.path.join(MODELS_DIR, "knn_model.pkl"), "rb"))
-scaler = pickle.load(open(os.path.join(MODELS_DIR, "scaler.pkl"), "rb"))
-imputer = pickle.load(open(os.path.join(MODELS_DIR, "imputer.pkl"), "rb"))
-columns = pickle.load(open(os.path.join(MODELS_DIR, "columns.pkl"), "rb"))
+model = pickle.load(open("models/knn_model.pkl", "rb"))
+scaler = pickle.load(open("models/scaler.pkl", "rb"))
+imputer = pickle.load(open("models/imputer.pkl", "rb"))
+columns = pickle.load(open("models/columns.pkl", "rb"))
 
 st.title("📊 Sales Revenue Prediction")
 
