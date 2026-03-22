@@ -11,8 +11,8 @@ import pickle
 # -----------------------------
 # Load Model Artifacts
 # -----------------------------
-BASE_DIR = os.path.dirname(__file__)
-MODELS_DIR = os.path.join(BASE_DIR, "../models")
+REPO_ROOT = os.getcwd()
+MODELS_DIR = os.path.join(REPO_ROOT, "models")
 
 model = pickle.load(open(os.path.join(MODELS_DIR, "knn_model.pkl"), "rb"))
 scaler = pickle.load(open(os.path.join(MODELS_DIR, "scaler.pkl"), "rb"))
