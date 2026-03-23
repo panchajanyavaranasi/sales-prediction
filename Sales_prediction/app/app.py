@@ -18,10 +18,16 @@ import pickle
 try:
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-    model_path = os.path.join(BASE_DIR, "..", "models", "knn_model.pkl")
-    scaler_path = os.path.join(BASE_DIR, "..", "models", "scaler.pkl")
-    imputer_path = os.path.join(BASE_DIR, "..", "models", "imputer.pkl")
-    columns_path = os.path.join(BASE_DIR, "..", "models", "columns.pkl")
+    # model_path = os.path.join(BASE_DIR, "..", "models", "knn_model.pkl")
+    # scaler_path = os.path.join(BASE_DIR, "..", "models", "scaler.pkl")
+    # imputer_path = os.path.join(BASE_DIR, "..", "models", "imputer.pkl")
+    # columns_path = os.path.join(BASE_DIR, "..", "models", "columns.pkl")
+
+    model_path = r"E:\ML_Proj\Sales_prediction\models\knn_model.pkl"
+    scaler_path = r"E:\ML_Proj\Sales_prediction\models\scaler.pkl"
+    imputer_path = r"E:\ML_Proj\Sales_prediction\models\imputer.pkl"
+    columns_path = r"E:\ML_Proj\Sales_prediction\models\columns.pkl"
+
 
     model = pickle.load(open(model_path, "rb"))
     scaler = pickle.load(open(scaler_path, "rb"))
