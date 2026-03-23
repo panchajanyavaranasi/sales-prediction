@@ -7,6 +7,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
+import sklearn
 
 # -----------------------------
 # Load Model Artifacts
@@ -28,8 +29,11 @@ try:
     scaler = pickle.load(open(scaler_path, "rb"))
     imputer = pickle.load(open(imputer_path, "rb"))
     columns = pickle.load(open(columns_path, "rb"))
+
+    st.success(f"sklearn version: {sklearn.__version__}")
 except FileNotFoundError as e:
     st.error(f"⚠️ Model file not found: {e}")
+    st.error(f"sklearn NOT installed: {e}")
     # st.stop()
 
 st.title("📊 Sales Revenue Prediction")
