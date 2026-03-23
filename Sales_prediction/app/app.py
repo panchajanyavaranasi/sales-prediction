@@ -29,11 +29,12 @@ try:
     scaler = pickle.load(open(scaler_path, "rb"))
     imputer = pickle.load(open(imputer_path, "rb"))
     columns = pickle.load(open(columns_path, "rb"))
-
-    st.success(f"sklearn version: {sklearn.__version__}")
+    
+    
 except FileNotFoundError as e:
+    st.write(f"sklearn version: {sklearn.__version__}")
     st.error(f"⚠️ Model file not found: {e}")
-    st.error(f"sklearn NOT installed: {e}")
+    
     # st.stop()
 
 st.title("📊 Sales Revenue Prediction")
