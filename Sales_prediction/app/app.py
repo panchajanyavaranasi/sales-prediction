@@ -16,6 +16,12 @@ import sklearn
 # BASE_DIR = os.path.dirname(__file__)
 # MODELS_DIR = os.path.join(BASE_DIR, "models")
 
+try:
+    import sklearn
+    st.success(f"sklearn installed: {sklearn.__version__}")
+except Exception as e:
+    st.error(f"sklearn NOT installed: {e}")
+
 
 try:
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
