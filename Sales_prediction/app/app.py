@@ -24,19 +24,13 @@ try:
     imputer_path = os.path.join(BASE_DIR, "..", "models", "imputer.pkl")
     columns_path = os.path.join(BASE_DIR, "..", "models", "columns.pkl")
 
-    # model_path = r"E:\ML_Proj\Sales_prediction\models\knn_model.pkl"
-    # scaler_path = r"E:\ML_Proj\Sales_prediction\models\scaler.pkl"
-    # imputer_path = r"E:\ML_Proj\Sales_prediction\models\imputer.pkl"
-    # columns_path = r"E:\ML_Proj\Sales_prediction\models\columns.pkl"
-
-
     model = pickle.load(open(model_path, "rb"))
     scaler = pickle.load(open(scaler_path, "rb"))
     imputer = pickle.load(open(imputer_path, "rb"))
     columns = pickle.load(open(columns_path, "rb"))
 except FileNotFoundError as e:
     st.error(f"⚠️ Model file not found: {e}")
-    st.stop()
+    # st.stop()
 
 st.title("📊 Sales Revenue Prediction")
 
