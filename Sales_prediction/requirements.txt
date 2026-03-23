@@ -1,7 +1,16 @@
+# Core Streamlit
+streamlit
+
+# Data handling
 pandas
 numpy
-scikit-learn # force-rebuild
-streamlit
+
+# Machine Learning (IMPORTANT)
+scikit-learn
+joblib
+
+# Optional (only if you use charts)
 matplotlib
 seaborn
-joblib
+
+# rebuild trigger
