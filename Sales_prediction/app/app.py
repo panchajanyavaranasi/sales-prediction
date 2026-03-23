@@ -7,6 +7,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
+import joblib
 
 # -----------------------------
 # Load Model Artifacts
@@ -23,10 +24,11 @@ try:
     imputer_path = os.path.join(BASE_DIR, "..", "models", "imputer.pkl")
     columns_path = os.path.join(BASE_DIR, "..", "models", "columns.pkl")
 
-    model = pickle.load(open(model_path, "rb"))
-    scaler = pickle.load(open(scaler_path, "rb"))
-    imputer = pickle.load(open(imputer_path, "rb"))
-    columns = pickle.load(open(columns_path, "rb"))
+    
+    model = joblib.load(model_path)
+    scaler = joblib.load(scaler_path)
+    imputer = joblib.load(imputer_path)
+    columns = joblib.load(columns_path)
 except FileNotFoundError as e:
     st.error(f"⚠️ Model file not found: {e}")
     st.stop()
