@@ -1,4 +1,4 @@
-# 📊 Sales Revenue Prediction using KNN Regression
+# 📊 Marketing Revenue Prediction using KNN Regression
 
 ## 🚀 Project Overview
 
