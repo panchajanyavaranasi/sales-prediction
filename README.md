@@ -109,7 +109,7 @@ streamlit run app/app.py
 
 The application can be deployed using **Streamlit Cloud**.
 
-👉 (Add your deployed link here after hosting)
+👉 https://sales-prediction-r7fe3dq6tvcol9lhx3si9n.streamlit.app/
 
 ---
 
